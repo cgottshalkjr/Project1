@@ -1,7 +1,7 @@
 $(".quick-link-card").on("click", function () {
   var term = $(this).attr("data-term")
   console.log(term);
-  var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + term + "&location=philadelphia&radius=40000&limit=10";
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + term + "&location=philadelphia&radius=40000&limit=10&categories=kids,children";
 
   $.ajax({
       url: queryURL,
@@ -24,10 +24,13 @@ $(".quick-link-card").on("click", function () {
      cardImage.addClass("img-fluid");
      var row = $("<div class='row mb-2'>")
      var col4 = $("<div class='col-4'>");
-     col4.append(cardImage)
+     col4.append(cardImage);
      var col8 = $("<div class='col-8'>");
-     col8.append("<h4>" + business[i].name +"</h4>")
-     col8.append("<p>" + business[i].location.address1 +"</p>")
+     col8.append("<h4>" + business[i].name +"</h4>");
+     col8.append("<p>" + business[i].location.address1 +"</p>");
+     col8.append("<p>" + business[i].location.city +"</p>");
+     col8.append("<p>" + business[i].url +"</p>");
+     
 
 
      row.append(col4, col8);
