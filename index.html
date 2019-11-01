@@ -1,13 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>project 1</title>
-</head>
-<body>
-    <h1>Kathryn</h1>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>project 1</title>
+  <!-- Bootstrap & jquery -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Little Philly</h1>
+      <p class="lead">
+        Local family fun.
+      </p>
+    </div>
+  </div>
+  <div class="container">
+
+
+    <!-- Quick Link Cards -->
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
+          data-term="Theater">
+          <div class="card-body">
+            <h5 class="card-title">Theater</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal" data-term="Music">
+          <div class="card-body">
+            <h5 class="card-title">Music</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
+          data-term="Visual+Arts">
+          <div class="card-body">
+            <h5 class="card-title">Visual Arts</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
+          data-term="Museums">
+          <div class="card-body">
+            <h5 class="card-title">Museums</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
+          data-term="Sports">
+          <div class="card-body">
+            <h5 class="card-title">Sports</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal" data-term="Dance">
+          <div class="card-body">
+            <h5 class="card-title">Dance</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- quickLinkScrollableModal -->
+    <div class="modal fade" id="quickLinkScrollableModal" tabindex="-1" role="dialog"
+      aria-labelledby="quickLinkScrollableModalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="quickLinkScrollableModalTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Quick Link Results
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Search Area -->
+  <!-- <form>
+    <div class="form-group">
+      <label for="searchInput"></label>
+      <input type="text" class="form-control" id="searchInput" aria-describedby="emailHelp" placeholder="Enter email">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> -->
+  
+  <!-- Favorites -->
+  </div>
 </body>
+
 </html>
