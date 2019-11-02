@@ -1,6 +1,30 @@
 .quick-link-card {
     cursor: pointer;
 }
+.titleUrl{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.titleUrl:hover{
+    color:black;
+    text-decoration: none;
+    background-color: rgb(224, 222, 222, 0.5);
+} 
+.venUrl{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+.venUrl:hover{
+    color:black;
+    text-decoration: none;
+    background-color: rgb(224, 222, 222, 0.5)
+}
+.carousel-caption{
+    background-color: rgb(19, 18, 18, 0.6);
+    line-height: normal;}
+;
 
 .jumbotron {
     padding: 2rem 2rem;
