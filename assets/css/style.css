@@ -25,3 +25,11 @@
     background-color: rgb(19, 18, 18, 0.6);
     line-height: normal;}
 ;
+
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
+hr {
+    border: 1px dashed black;
+}
