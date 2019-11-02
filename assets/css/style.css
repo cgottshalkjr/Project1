@@ -2,7 +2,10 @@
     cursor: pointer;
 }
 
+.jumbotron {
+    padding: 2rem 2rem;
+}
+
 hr {
     border: 1px dashed black;
 }
-
