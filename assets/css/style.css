@@ -2,9 +2,10 @@
     cursor: pointer;
 }
 
-/* @media (min-width: 576px) */
 .jumbotron {
     padding: 2rem 2rem;
 }
 
-;
+hr {
+    border: 1px dashed black;
+}
