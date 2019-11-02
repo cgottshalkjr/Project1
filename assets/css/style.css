@@ -2,4 +2,7 @@
     cursor: pointer;
 }
 
-;
+hr {
+    border: 1px dashed black;
+}
+
