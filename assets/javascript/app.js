@@ -32,7 +32,15 @@ $(".quick-link-card").on("click", function() {
       col8.append("<h4>" + business[i].name + "</h4>");
       col8.append("<p>" + business[i].location.address1 + "</p>");
       col8.append("<p>" + business[i].location.city + "</p>");
-      col8.append("<p>" + business[i].url + "</p>");
+      // col8.append("<p>" + business[i].url + "</p>");
+      var web = $("<a />", {
+        target: "blank",
+        href: business[i].url,
+        text: "Go to Website"
+      });
+      console.log(web)
+      
+      col8.append(web)
       var row2 = $("<hr>");
 
       row.append(col4, col8);
