@@ -1,29 +1,36 @@
 .quick-link-card {
     cursor: pointer;
 }
-.titleUrl{
+
+.titleUrl {
     color: white;
     font-size: 20px;
     font-weight: bold;
 }
-.titleUrl:hover{
-    color:black;
+
+.titleUrl:hover {
+    color: black;
     text-decoration: none;
     background-color: rgb(224, 222, 222, 0.5);
-} 
-.venUrl{
+}
+
+.venUrl {
     color: white;
     font-size: 14px;
     font-weight: bold;
 }
-.venUrl:hover{
-    color:black;
+
+.venUrl:hover {
+    color: black;
     text-decoration: none;
     background-color: rgb(224, 222, 222, 0.5)
 }
-.carousel-caption{
+
+.carousel-caption {
     background-color: rgb(19, 18, 18, 0.6);
-    line-height: normal;}
+    line-height: normal;
+}
+
 ;
 
 .jumbotron {
@@ -34,6 +41,6 @@ hr {
     border: 1px dashed black;
 }
 
-#searchBtn{
+#searchBtn {
     float: right;
 }
