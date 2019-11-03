@@ -44,3 +44,15 @@ hr {
 #searchBtn {
     float: right;
 }
+
+div.resultsScroll {
+    overflow: auto;
+    white-space: nowrap;
+  }
+  
+  div.resultsScroll div {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin:0 5px 20px 5px;
+  }
