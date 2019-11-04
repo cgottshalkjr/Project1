@@ -69,8 +69,8 @@ div.resultsScroll {
     margin:0 5px 20px 5px;
   }
 
-  .card-img-top {
-    width: 150px;
-    height: 150px;
+  .card-size {
+    width: 200px;
+    height: 300px;
     object-fit: cover;
 }
