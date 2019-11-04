@@ -1,6 +1,6 @@
-$(".yelpApiSearch").on("click", function (event) {
+$(".yelpApiSearch").on("click", function(event) {
   event.preventDefault();
-  console.log("Click!")
+  console.log("Click!");
 
   var search = $("#userInput").val();
   console.log(search);
@@ -18,39 +18,45 @@ $(".yelpApiSearch").on("click", function (event) {
         "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
     },
     dataType: "json"
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response);
     $("#scrollDiv").empty();
     var business = response.businesses;
     for (var i = 0; i < business.length; i++) {
       console.log(response);
       console.log(business[i].name);
-      var cardImage = $("<img>").attr("src", business[i].image_url || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png");
+      var cardImage = $("<img>").attr(
+        "src",
+        business[i].image_url ||
+          "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+      );
       cardImage.addClass("card-img card-size");
       var newCard = $("<div class='card'>");
       var newCardOverlay = $("<div class='card-img-overlay'>");
       newCard.append(cardImage);
-      newCardOverlay.append("<p>" + "<strong>" + business[i].name + "</strong>" + "</p>", "<p>" + (business[i].location.address1 || "No Address Available") + "</p>", "<p>" + business[i].location.city + "</p>");
+      newCardOverlay.append(
+        "<p>" + "<strong>" + business[i].name + "</strong>" + "</p>",
+        "<p>" +
+          (business[i].location.address1 || "No Address Available") +
+          "</p>",
+        "<p>" + business[i].location.city + "</p>"
+      );
 
       newCard.append(newCardOverlay);
 
-
-
-
       $("#scrollDiv").append(newCard);
-
-
-
     }
   });
 
   var eventfullURL =
-    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" + search + "&location=Philadelphia&date=November&sort_order=popularity";
+    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" +
+    search +
+    "&location=Philadelphia&date=November&sort_order=popularity";
   $.ajax({
     url: eventfullURL,
     dataType: "jsonp",
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response);
     $("#scrollDiv2").empty();
     var events = response.events.event;
@@ -58,25 +64,29 @@ $(".yelpApiSearch").on("click", function (event) {
     for (var i = 0; i < events.length; i++) {
       console.log(response);
       console.log(events[i].city_name);
-      var cardImage2 = $("<img>").attr("src", "http:" + events[i].image.medium.url || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png");
+      var cardImage2 = $("<img>").attr(
+        "src",
+        "http:" + events[i].image.medium.url ||
+          "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+      );
       cardImage2.addClass("card-img card-size");
       var newCard2 = $("<div class='card'>");
       var newCardOverlay2 = $("<div class='card-img-overlay'>");
       newCard2.append(cardImage2);
-      newCardOverlay2.append("<p>" + "<strong>" + events[i].city_name + "</strong>" + "</p>", "<p>" + events[i].venue_name + "</p>", "<p>" + events[i].venue_url + "</p>");
+      newCardOverlay2.append(
+        "<p>" + "<strong>" + events[i].city_name + "</strong>" + "</p>",
+        "<p>" + events[i].venue_name + "</p>",
+        "<p>" + events[i].venue_url + "</p>"
+      );
 
       newCard2.append(newCardOverlay2);
 
-
-
       $("#scrollDiv2").append(newCard2);
-
     }
   });
-
 });
 
-$(".quick-link-card").on("click", function (event) {
+$(".quick-link-card").on("click", function(event) {
   event.preventDefault();
   var term = $(this).attr("data-term");
   console.log(term);
@@ -93,7 +103,7 @@ $(".quick-link-card").on("click", function (event) {
         "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
     },
     dataType: "json"
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response);
     $("#quickLinkScrollableModal .modal-body").empty();
     var business = response.businesses;
@@ -117,9 +127,9 @@ $(".quick-link-card").on("click", function (event) {
         href: business[i].url,
         text: "Go to Website"
       });
-      console.log(web)
+      console.log(web);
 
-      col8.append(web)
+      col8.append(web);
       var row2 = $("<hr>");
 
       row.append(col4, col8);
@@ -137,7 +147,7 @@ function displayEvent() {
     url: eventfullURL,
     dataType: "jsonp",
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     console.log(response);
     var events = response.events.event;
     console.log(events);
@@ -191,3 +201,81 @@ function displayEvent() {
   });
 }
 displayEvent();
+
+//Player Section
+function displayVideo() {
+  var ytURL =
+    "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Kids+DIY&type=video&order=viewCount&maxResults=15&key=AIzaSyBF9BwZdN66yQbMhHnYanjqRPuVrP2AU2Q";
+
+  $.ajax({
+    url: ytURL,
+    method: "GET"
+  }).then(function(ytResponse) {
+    console.log(ytResponse);
+
+    for (let i = 0; i < ytResponse.items.length; i++) {
+     
+      var url = $("<div>").addClass("vid-item");
+
+      url.attr(
+        "data-url",
+        "https://www.youtube.com/embed/" + ytResponse.items[i].id.videoId
+      );
+      var name = ytResponse.items[i].snippet.title;
+
+      console.log(ytResponse.items[i].id.videoId);
+      console.log(url);
+      console.log(name);
+
+      var thumbnailDiv = $("<div>").addClass("thumb");
+      var thumbnailImg = $("<img>").attr(
+        "src",
+        ytResponse.items[i].snippet.thumbnails.default.url
+      );
+      thumbnailDiv.append(thumbnailImg);
+      url.append(thumbnailDiv);
+
+      var vidTitleDiv = $("<div>").addClass("desc");
+      vidTitleDiv.text(name);
+      url.append(vidTitleDiv);
+
+      $(".vid-list").append(url);
+    }
+  });
+}
+displayVideo();
+
+$(document).on("click", ".vid-item", function() {
+  var youtubeURL = $(this).attr("data-url");
+  console.log(youtubeURL);
+  document.getElementById("vid_frame").src = youtubeURL;
+});
+
+//Player arrows
+
+$(document).ready(function() {
+  $(".arrow-right").bind("click", function(event) {
+    event.preventDefault();
+    $(".vid-list-container")
+      .stop()
+      .animate(
+        {
+          scrollLeft: "+=336"
+        },
+        750
+      );
+  });
+  $(".arrow-left").bind("click", function(event) {
+    event.preventDefault();
+    $(".vid-list-container")
+      .stop()
+      .animate(
+        {
+          scrollLeft: "-=336"
+        },
+        750
+      );
+  });
+});
+
+//End of Player
