@@ -279,3 +279,44 @@ $(document).ready(function() {
 });
 
 //End of Player
+
+var APIKey = "166a433c57516f51dfab1f7edaed8413";
+var queryURL =
+    "https://api.openweathermap.org/data/2.5/weather?" +
+    "q=Philadelphia&units=imperial&appid=" +
+    APIKey;
+
+// Here we run our AJAX call to the OpenWeatherMap API
+$.ajax({
+    url: queryURL,
+    method: "GET"
+})
+    // We store all of the retrieved data inside of an object called "response"
+    .then(function (response) {
+        // Log the queryURL
+        console.log(queryURL);
+        var weatherIcon = response.weather[0].icon;
+        var iconImg = $("<img>");
+        // Log the resulting object
+        console.log(response);
+       iconImg.attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
+
+        // Transfer content to HTML
+        city = $("#city").html("<h4>" + response.name + "</h4>");
+        city.addClass("text-center");
+        wind = $("#wind").text("Wind Speed: " + response.wind.speed);
+        humidity = $("#humidity").text("Humidity: " + response.main.humidity);
+        temp = $("#temp").text("Temperature (F) " + response.main.temp);
+        minTemp = $("#minTemp").text("Min Temperature (F) " + response.main.temp_min);
+        maxTemp = $("#maxTemp").text("Max Temperature (F) " + response.main.temp_max);
+        $("#icon").append(iconImg);
+
+
+
+        // Log the data in the console as well
+        console.log("Wind Speed: " + wind);
+        console.log("Humidity: " + humidity);
+        console.log("Temperature (F): " + temp);
+
+
+    });
