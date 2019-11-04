@@ -1,4 +1,4 @@
-.quick-link-card {
+.card {
     cursor: pointer;
 }
 
@@ -73,4 +73,9 @@ div.resultsScroll {
     width: 200px;
     height: 300px;
     object-fit: cover;
+}
+
+  .card-img-overlay * {
+    text-align: left;
+    white-space: normal;
 }
