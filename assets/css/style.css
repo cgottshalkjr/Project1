@@ -1,5 +1,5 @@
-.quick-link-card {
-  cursor: pointer;
+.card {
+    cursor: pointer;
 }
 
 .titleUrl {
@@ -193,4 +193,9 @@ div.resultsScroll div {
     right: 0;
     top: -17px;
   }
+}
+
+  .card-img-overlay * {
+    text-align: left;
+    white-space: normal;
 }
