@@ -6,45 +6,77 @@ $(".yelpApiSearch").on("click", function (event) {
   console.log(search);
 
   var queryURL =
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" +
-      search +
-      "&location=philadelphia&radius=40000&limit=10&categories=kids,children";
+    "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" +
+    search +
+    "&location=philadelphia&radius=40000&limit=10&categories=kids,children";
 
   $.ajax({
-      url: queryURL,
-      method: "GET",
-      headers: {
-          Authorization:
-              "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
-      },
-      dataType: "json"
+    url: queryURL,
+    method: "GET",
+    headers: {
+      Authorization:
+        "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
+    },
+    dataType: "json"
   }).then(function (response) {
+    console.log(response);
+    $("#scrollDiv").empty();
+    var business = response.businesses;
+    for (var i = 0; i < business.length; i++) {
       console.log(response);
-      $("#scrollDiv").empty();
-      var business = response.businesses;
-      for (var i = 0; i < business.length; i++) {
-          console.log(response);
-          console.log(business[i].name);
-          var cardImage = $("<img>").attr("src", business[i].image_url);
-          cardImage.addClass("img-fluid card-img-top");
-          var newCard = $("<div class='card'>");
-          var newCardBody = $("<div class='card-body'>");
-          newCardBody.append(cardImage);
-          newCardBody.append("<p>" + "<strong>" + business[i].name + "</strong>" + "</p>", "<p>" + business[i].location.address1 + "</p>", "<p>" + business[i].location.city + "</p>");
+      console.log(business[i].name);
+      var cardImage = $("<img>").attr("src", business[i].image_url || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png");
+      cardImage.addClass("card-img card-size");
+      var newCard = $("<div class='card'>");
+      var newCardOverlay = $("<div class='card-img-overlay'>");
+      newCard.append(cardImage);
+      newCardOverlay.append("<p>" + "<strong>" + business[i].name + "</strong>" + "</p>", "<p>" + (business[i].location.address1 || "No Address Available") + "</p>", "<p>" + business[i].location.city + "</p>");
 
-          newCard.append(newCardBody);
+      newCard.append(newCardOverlay);
 
 
 
-          $("#scrollDiv").append(newCard);
+
+      $("#scrollDiv").append(newCard);
 
 
 
-      }
+    }
   });
-})
 
-$(".quick-link-card").on("click", function(event) {
+  var eventfullURL =
+    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" + search + "&location=Philadelphia&date=November&sort_order=popularity";
+  $.ajax({
+    url: eventfullURL,
+    dataType: "jsonp",
+    method: "GET"
+  }).then(function (response) {
+    console.log(response);
+    $("#scrollDiv2").empty();
+    var events = response.events.event;
+    console.log(events);
+    for (var i = 0; i < events.length; i++) {
+      console.log(response);
+      console.log(events[i].city_name);
+      var cardImage2 = $("<img>").attr("src", "http:" + events[i].image.medium.url || "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png");
+      cardImage2.addClass("card-img card-size");
+      var newCard2 = $("<div class='card'>");
+      var newCardOverlay2 = $("<div class='card-img-overlay'>");
+      newCard2.append(cardImage2);
+      newCardOverlay2.append("<p>" + "<strong>" + events[i].city_name + "</strong>" + "</p>", "<p>" + events[i].venue_name + "</p>", "<p>" + events[i].venue_url + "</p>");
+
+      newCard2.append(newCardOverlay2);
+
+
+
+      $("#scrollDiv2").append(newCard2);
+
+    }
+  });
+
+});
+
+$(".quick-link-card").on("click", function (event) {
   event.preventDefault();
   var term = $(this).attr("data-term");
   console.log(term);
@@ -61,7 +93,7 @@ $(".quick-link-card").on("click", function(event) {
         "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
     },
     dataType: "json"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     $("#quickLinkScrollableModal .modal-body").empty();
     var business = response.businesses;
@@ -86,7 +118,7 @@ $(".quick-link-card").on("click", function(event) {
         text: "Go to Website"
       });
       console.log(web)
-      
+
       col8.append(web)
       var row2 = $("<hr>");
 
@@ -105,7 +137,7 @@ function displayEvent() {
     url: eventfullURL,
     dataType: "jsonp",
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     var events = response.events.event;
     console.log(events);
