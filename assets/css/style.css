@@ -235,7 +235,15 @@ html {
     position: relative;
     min-height: 100%;
 }
-
+/* weather */
+#temp{
+  font-size: 65px;
+  font-weight: bold;
+}
+/* end of weather*/
+.carImg{
+  height: 400px;
+}
 body {
     margin-bottom: 70px; /* Margin bottom by footer height */
 }
