@@ -5,7 +5,7 @@ $(".yelpApiSearch").on("click", function (event) {
 
   var search = $("#userInput").val();
   console.log(search);
-//Beginning of Yelp ajax call
+  //Beginning of Yelp ajax call
   var queryURL =
     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" +
     search +
@@ -35,19 +35,23 @@ $(".yelpApiSearch").on("click", function (event) {
       var newCard = $("<div class='card'>");
       var newCardOverlay = $("<div class='card-img-overlay'>");
       newCard.append(cardImage);
+      var isOpen = "Closed";
+      console.log(business[i].is_closed)
+      if (business[i].is_closed == false) {
+        isOpen = "Open";
+      }
       newCardOverlay.append(
-        "<p>" + "<strong>" + business[i].name + "</strong>" + "</p>",
-        "<p>" +
-        (business[i].location.address1 || "No Address Available") +
-        "</p>",
-        "<p>" + business[i].location.city + "</p>"
+        "<span>" + "<strong>" + business[i].name + "</strong>" + "<span>" + "<br>",
+
+        "<span>" + (business[i].location.address1 + "</span>" + ", " + "<span>" + business[i].location.city + "</span>" || "No Address Available"),
+        business[i].display_phone + "<br>" + "Rating: " + business[i].rating + "<br>" + isOpen
       );
 
       newCard.append(newCardOverlay);
 
       $("#scrollDiv").append(newCard);
     }
-  }); 
+  });
   // End of Yelp ajax call
 
   // Beginning of Eventful ajax call
@@ -228,7 +232,7 @@ function displayVideo() {
         "https://www.youtube.com/embed/" + ytResponse.items[i].id.videoId
       );
       var name = ytResponse.items[i].snippet.title;
-        firstVid = "https://www.youtube.com/embed/" + ytResponse.items[0].id.videoId;
+      firstVid = "https://www.youtube.com/embed/" + ytResponse.items[0].id.videoId;
       console.log(ytResponse.items[i].id.videoId);
       console.log(url);
       console.log(name);
@@ -324,5 +328,5 @@ $.ajax({
     console.log("Wind Speed: " + wind);
     console.log("Humidity: " + humidity);
     console.log("Temperature (F): " + temp);
-});
+  });
 //End of openweather map
