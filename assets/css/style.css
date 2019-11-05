@@ -86,6 +86,10 @@
 
 .jumbotron {
   padding: 2rem 2rem;
+  background-image: url("../images/lp-watercolor-03.png");
+  background-size: 70% 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
 hr {
