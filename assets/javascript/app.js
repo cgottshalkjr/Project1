@@ -37,8 +37,8 @@ $(".yelpApiSearch").on("click", function (event) {
         "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
       );
       cardImage.addClass("card-img-top card-size");
-      var newCard = $("<div class='card border-0 rounded shadow bg-light card-results pt-5'>");
-      var newCardOverlay = $("<div class='card-body text-muted text-left text-wrap px-5'>");
+      var newCard = $("<div class='card border-0 rounded shadow bg-light card-results pt-3'>");
+      var newCardOverlay = $("<div class='card-body text-muted text-left px-4'>");
       newCard.append(cardImage); 
       var isOpen = "Closed";
 

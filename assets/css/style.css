@@ -154,6 +154,7 @@ div.resultsScroll {
 }
 .card-results .card-body {
   display: block;
+  font-size: 65%;
 }
 
 div.resultsScroll div {
@@ -164,8 +165,8 @@ div.resultsScroll div {
 }
 
 .card-size {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
