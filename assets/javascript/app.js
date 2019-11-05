@@ -247,7 +247,7 @@ function displayVideo() {
 
       $(".vid-list").append(url);
     }
-    $(".vid_frame").attr("src", firstVid);
+    $("#vid_frame").attr("src", firstVid);
   });
 }
 displayVideo();
