@@ -98,6 +98,7 @@ $(".yelpApiSearch").on("click", function (event) {
 //Beginning of on click function that has Yelp ajax call that will produce results in Modal
 $(".quick-link-card").on("click", function (event) {
   event.preventDefault();
+  $(".modal-body").html("<div class='spinner-border text-primary' role='status'><span class='sr-only'>Loading...</span></div>");
   var term = $(this).attr("data-term");
   console.log(term);
   var queryURL =
