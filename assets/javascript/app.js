@@ -1,3 +1,8 @@
+$(".searchbar").on("mouseout", function() {
+  $(".search_input").css("width", "450px");
+})
+
+
 // Beginning of on click function that holds ajax call for YELP and EVENTFUL APIs in the search bar
 $(".yelpApiSearch").on("click", function (event) {
   event.preventDefault();
@@ -31,11 +36,21 @@ $(".yelpApiSearch").on("click", function (event) {
         business[i].image_url ||
         "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
       );
-      cardImage.addClass("card-img card-size");
-      var newCard = $("<div class='card'>");
-      var newCardOverlay = $("<div class='card-img-overlay'>");
+      cardImage.addClass("card-img-top card-size");
+      var newCard = $("<div class='card border-0 rounded shadow bg-light card-results pt-5'>");
+      var newCardOverlay = $("<div class='card-body text-muted'>");
       newCard.append(cardImage);
       var isOpen = "Closed";
+
+      var URL = $("<a />").attr("href", business[i].url).text("Go to Website").attr("target", "blank")
+
+      console.log(business[i].url)
+
+      console.log("BUSINESS LINK "+ business[i].url)
+
+      // var URL = $("<a />");
+      // URL.addClass("btn btn-primary stretched-link").attr("href=", business[i].url).text("Go to Website")
+      
       console.log(business[i].is_closed)
       if (business[i].is_closed == false) {
         isOpen = "Open";
@@ -43,8 +58,8 @@ $(".yelpApiSearch").on("click", function (event) {
       newCardOverlay.append(
         "<span>" + "<strong>" + business[i].name + "</strong>" + "<span>" + "<br>",
 
-        "<span>" + (business[i].location.address1 + "</span>" + ", " + "<span>" + business[i].location.city + "</span>" || "No Address Available"),
-        business[i].display_phone + "<br>" + "Rating: " + business[i].rating + "<br>" + isOpen
+        "<span>" + (business[i].location.address1 + "</span>" + ", " + "<span>" + business[i].location.city + "</span>" || "No Address Available")
+        + "<br>" + "<span>" + business[i].display_phone + "</span>" + "<br>" + "Rating: " + business[i].rating + "<br>" + isOpen + "<br>", URL
       );
 
       newCard.append(newCardOverlay);
@@ -55,42 +70,42 @@ $(".yelpApiSearch").on("click", function (event) {
   // End of Yelp ajax call
 
   // Beginning of Eventful ajax call
-  var eventfullURL =
-    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" +
-    search +
-    "&location=Philadelphia";
-  $.ajax({
-    url: eventfullURL,
-    dataType: "jsonp",
-    method: "GET"
-  }).then(function (response) {
-    console.log(response);
-    $("#scrollDiv2").empty();
-    var events = response.events.event;
-    console.log(events);
-    for (var i = 0; i < events.length; i++) {
-      console.log(response);
-      console.log(events[i].city_name);
-      var cardImage2 = $("<img>").attr(
-        "src",
-        "http:" + events[i].image.medium.url ||
-        "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
-      );
-      cardImage2.addClass("card-img card-size");
-      var newCard2 = $("<div class='card'>");
-      var newCardOverlay2 = $("<div class='card-img-overlay'>");
-      newCard2.append(cardImage2);
-      newCardOverlay2.append(
-        "<p>" + "<strong>" + events[i].city_name + "</strong>" + "</p>",
-        "<p>" + events[i].venue_name + "</p>",
-        "<p>" + events[i].venue_url + "</p>"
-      );
+  // var eventfullURL =
+  //   "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" +
+  //   search +
+  //   "&location=Philadelphia";
+  // $.ajax({
+  //   url: eventfullURL,
+  //   dataType: "jsonp",
+  //   method: "GET"
+  // }).then(function (response) {
+  //   console.log(response);
+  //   $("#scrollDiv2").empty();
+  //   var events = response.events.event;
+  //   console.log(events);
+  //   for (var i = 0; i < events.length; i++) {
+  //     console.log(response);
+  //     console.log(events[i].city_name);
+  //     var cardImage2 = $("<img>").attr(
+  //       "src",
+  //       "http:" + events[i].image.medium.url ||
+  //       "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+  //     );
+  //     cardImage2.addClass("card-img card-size");
+  //     var newCard2 = $("<div class='card'>");
+  //     var newCardOverlay2 = $("<div class='card-img-overlay'>");
+  //     newCard2.append(cardImage2);
+  //     newCardOverlay2.append(
+  //       "<p>" + "<strong>" + events[i].city_name + "</strong>" + "</p>",
+  //       "<p>" + events[i].venue_name + "</p>",
+  //       "<p>" + events[i].venue_url + "</p>"
+  //     );
 
-      newCard2.append(newCardOverlay2);
+  //     newCard2.append(newCardOverlay2);
 
-      $("#scrollDiv2").append(newCard2);
-    }
-  });
+  //     $("#scrollDiv2").append(newCard2);
+  //   }
+  // });
   //End of Eventful ajax call
 });
 //End of On click function for search bar connected to APIs
