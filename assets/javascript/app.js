@@ -54,7 +54,7 @@ $(".yelpApiSearch").on("click", function (event) {
   var eventfullURL =
     "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" +
     search +
-    "&location=Philadelphia&date=November&sort_order=popularity";
+    "&location=Philadelphia";
   $.ajax({
     url: eventfullURL,
     dataType: "jsonp",
