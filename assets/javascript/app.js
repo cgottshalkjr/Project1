@@ -1,10 +1,11 @@
-$(".yelpApiSearch").on("click", function(event) {
+// Beginning of on click function that holds ajax call for YELP and EVENTFUL APIs in the search bar
+$(".yelpApiSearch").on("click", function (event) {
   event.preventDefault();
   console.log("Click!");
 
   var search = $("#userInput").val();
   console.log(search);
-
+//Beginning of Yelp ajax call
   var queryURL =
     "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" +
     search +
@@ -18,7 +19,7 @@ $(".yelpApiSearch").on("click", function(event) {
         "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
     },
     dataType: "json"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     $("#scrollDiv").empty();
     var business = response.businesses;
@@ -28,7 +29,7 @@ $(".yelpApiSearch").on("click", function(event) {
       var cardImage = $("<img>").attr(
         "src",
         business[i].image_url ||
-          "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+        "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
       );
       cardImage.addClass("card-img card-size");
       var newCard = $("<div class='card'>");
@@ -37,8 +38,8 @@ $(".yelpApiSearch").on("click", function(event) {
       newCardOverlay.append(
         "<p>" + "<strong>" + business[i].name + "</strong>" + "</p>",
         "<p>" +
-          (business[i].location.address1 || "No Address Available") +
-          "</p>",
+        (business[i].location.address1 || "No Address Available") +
+        "</p>",
         "<p>" + business[i].location.city + "</p>"
       );
 
@@ -46,8 +47,10 @@ $(".yelpApiSearch").on("click", function(event) {
 
       $("#scrollDiv").append(newCard);
     }
-  });
+  }); 
+  // End of Yelp ajax call
 
+  // Beginning of Eventful ajax call
   var eventfullURL =
     "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=" +
     search +
@@ -56,7 +59,7 @@ $(".yelpApiSearch").on("click", function(event) {
     url: eventfullURL,
     dataType: "jsonp",
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     $("#scrollDiv2").empty();
     var events = response.events.event;
@@ -67,7 +70,7 @@ $(".yelpApiSearch").on("click", function(event) {
       var cardImage2 = $("<img>").attr(
         "src",
         "http:" + events[i].image.medium.url ||
-          "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
+        "http://www.stleos.uq.edu.au/wp-content/uploads/2016/08/image-placeholder.png"
       );
       cardImage2.addClass("card-img card-size");
       var newCard2 = $("<div class='card'>");
@@ -84,9 +87,12 @@ $(".yelpApiSearch").on("click", function(event) {
       $("#scrollDiv2").append(newCard2);
     }
   });
+  //End of Eventful ajax call
 });
+//End of On click function for search bar connected to APIs
 
-$(".quick-link-card").on("click", function(event) {
+//Beginning of on click function that has Yelp ajax call that will produce results in Modal
+$(".quick-link-card").on("click", function (event) {
   event.preventDefault();
   var term = $(this).attr("data-term");
   console.log(term);
@@ -103,15 +109,13 @@ $(".quick-link-card").on("click", function(event) {
         "Bearer xbvcW29zavUCvrlYQUoiGodM98RsayeaJSphvNMVW8WOY8RfwMsGR7NHtsqubWZhb620AwbXXVvGZG3R-Kui783rGEtf72eWS3BuTAqTQM0DsvaT-V6ddjw8sem6XXYx"
     },
     dataType: "json"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     $("#quickLinkScrollableModal .modal-body").empty();
     var business = response.businesses;
     for (var i = 0; i < business.length; i++) {
       console.log(response);
       console.log(business[i].name);
-      //  $("#quickLinkScrollableModal .modal-body").append(business[i].name);
-      //  $("#quickLinkScrollableModal .modal-body").append(business[i].location.address1);
       var cardImage = $("<img>").attr("src", business[i].image_url);
       cardImage.addClass("img-fluid");
       var row = $("<div class='row mb-2'>");
@@ -121,7 +125,6 @@ $(".quick-link-card").on("click", function(event) {
       col8.append("<h4>" + business[i].name + "</h4>");
       col8.append("<p>" + business[i].location.address1 + "</p>");
       col8.append("<p>" + business[i].location.city + "</p>");
-      // col8.append("<p>" + business[i].url + "</p>");
       var web = $("<a />", {
         target: "blank",
         href: business[i].url,
@@ -138,6 +141,7 @@ $(".quick-link-card").on("click", function(event) {
     }
   });
 });
+//End of quick modal Yelp ajax call
 
 //Carousel
 function displayEvent() {
@@ -147,7 +151,7 @@ function displayEvent() {
     url: eventfullURL,
     dataType: "jsonp",
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     var events = response.events.event;
     console.log(events);
@@ -201,6 +205,7 @@ function displayEvent() {
   });
 }
 displayEvent();
+//End of Carousel event
 
 //Player Section
 function displayVideo() {
@@ -210,11 +215,11 @@ function displayVideo() {
   $.ajax({
     url: ytURL,
     method: "GET"
-  }).then(function(ytResponse) {
+  }).then(function (ytResponse) {
     console.log(ytResponse);
 
     for (let i = 0; i < ytResponse.items.length; i++) {
-     
+
       var url = $("<div>").addClass("vid-item");
 
       url.attr(
@@ -245,7 +250,7 @@ function displayVideo() {
 }
 displayVideo();
 
-$(document).on("click", ".vid-item", function() {
+$(document).on("click", ".vid-item", function () {
   var youtubeURL = $(this).attr("data-url");
   console.log(youtubeURL);
   document.getElementById("vid_frame").src = youtubeURL;
@@ -253,8 +258,8 @@ $(document).on("click", ".vid-item", function() {
 
 //Player arrows
 
-$(document).ready(function() {
-  $(".arrow-right").bind("click", function(event) {
+$(document).ready(function () {
+  $(".arrow-right").bind("click", function (event) {
     event.preventDefault();
     $(".vid-list-container")
       .stop()
@@ -265,7 +270,7 @@ $(document).ready(function() {
         750
       );
   });
-  $(".arrow-left").bind("click", function(event) {
+  $(".arrow-left").bind("click", function (event) {
     event.preventDefault();
     $(".vid-list-container")
       .stop()
@@ -277,46 +282,45 @@ $(document).ready(function() {
       );
   });
 });
-
 //End of Player
 
+//Openweather Map query
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
 var queryURL =
-    "https://api.openweathermap.org/data/2.5/weather?" +
-    "q=Philadelphia&units=imperial&appid=" +
-    APIKey;
+  "https://api.openweathermap.org/data/2.5/weather?" +
+  "q=Philadelphia&units=imperial&appid=" +
+  APIKey;
 
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
-    url: queryURL,
-    method: "GET"
+  url: queryURL,
+  method: "GET"
 })
-    // We store all of the retrieved data inside of an object called "response"
-    .then(function (response) {
-        // Log the queryURL
-        console.log(queryURL);
-        var weatherIcon = response.weather[0].icon;
-        var iconImg = $("<img>");
-        // Log the resulting object
-        console.log(response);
-       iconImg.attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
+  // We store all of the retrieved data inside of an object called "response"
+  .then(function (response) {
+    // Log the queryURL
+    console.log(queryURL);
+    var weatherIcon = response.weather[0].icon;
+    var iconImg = $("<img>");
+    // Log the resulting object
+    console.log(response);
+    iconImg.attr("src", "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
 
-        // Transfer content to HTML
-        city = $("#city").html("<h4>" + response.name + "</h4>");
-        city.addClass("text-center");
-        wind = $("#wind").text("Wind Speed: " + response.wind.speed);
-        humidity = $("#humidity").text("Humidity: " + response.main.humidity);
-        temp = $("#temp").text("Temperature (F) " + response.main.temp);
-        minTemp = $("#minTemp").text("Min Temperature (F) " + response.main.temp_min);
-        maxTemp = $("#maxTemp").text("Max Temperature (F) " + response.main.temp_max);
-        $("#icon").append(iconImg);
-
-
-
-        // Log the data in the console as well
-        console.log("Wind Speed: " + wind);
-        console.log("Humidity: " + humidity);
-        console.log("Temperature (F): " + temp);
+    // Transfer content to HTML
+    city = $("#city").html("<h4>" + response.name + "</h4>");
+    city.addClass("text-center");
+    wind = $("#wind").text("Wind Speed: " + response.wind.speed);
+    humidity = $("#humidity").text("Humidity: " + response.main.humidity);
+    temp = $("#temp").text("Temperature (F) " + response.main.temp);
+    minTemp = $("#minTemp").text("Min Temperature (F) " + response.main.temp_min);
+    maxTemp = $("#maxTemp").text("Max Temperature (F) " + response.main.temp_max);
+    $("#icon").append(iconImg);
 
 
-    });
+
+    // Log the data in the console as well
+    console.log("Wind Speed: " + wind);
+    console.log("Humidity: " + humidity);
+    console.log("Temperature (F): " + temp);
+});
+//End of openweather map

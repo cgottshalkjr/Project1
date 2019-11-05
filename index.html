@@ -30,7 +30,15 @@
       <p class="lead">
         Local family fun.
       </p>
-      <div>
+      <div class="container h-100">
+          <div class="d-flex justify-content-center h-100">
+            <div class="searchbar">
+              <input class="search_input" type="text" name="" id="userInput" placeholder="Search...">
+              <a href="#" class="search_icon yelpApiSearch"><i class="fas fa-search"></i></a>
+            </div>
+          </div>
+        </div>
+      <!-- <div>
         <form>
           <div class="form-group">
             <input type="text" class="form-control" id="userInput" placeholder="Search..." />
@@ -39,21 +47,21 @@
             Search
           </button>
         </form>
-      </div>
+      </div> -->
     </div>
   </div>
 
   <div class="container">
-    <!-- Search Results -->
 
+    <!-- Search Results Yelp-->
     <div class="container">
       <div class="resultsScroll">
         <div id="scrollDiv"></div>
       </div>
     </div>
 
+    <!-- Search Results Eventful-->
     <div class="container">
-      <!-- Search Results -->
       <div class="resultsScroll">
         <div id="scrollDiv2"></div>
       </div>
@@ -64,82 +72,59 @@
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="kids+theatre">
-          <div class="card-body">
-            <h5 class="card-title">Theater</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kidstheatre.jpg" class="card-img-top" id="img-fix" alt="KidsTheatre">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Theater</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="kids+music+classes">
-          <div class="card-body">
-            <h5 class="card-title">Music</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kidsmusic.jpg" class="card-img-top" id="img-fix" alt="KidsMusic">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Music</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="kids+art+classes">
-          <div class="card-body">
-            <h5 class="card-title">Visual Arts</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kidsart.jpg" class="card-img-top" id="img-fix" alt="KidsArts">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Visual Arts</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="Museums+for+kids">
-          <div class="card-body">
-            <h5 class="card-title">Museums</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kidmuseum.jpg" class="card-img-top" id="img-fix" alt="KidsMuseum">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Museums</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="kids+athletics">
-          <div class="card-body">
-            <h5 class="card-title">Sports</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kidsathletics.jpeg" class="card-img-top" id="img-fix" alt="KidsSports">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Sports</h5>
           </div>
         </div>
       </div>
       <div class="col-sm-2">
         <div class="quick-link-card card" data-toggle="modal" data-target="#quickLinkScrollableModal"
           data-term="dance+classes+for+kids">
-          <div class="card-body">
-            <h5 class="card-title">Dance</h5>
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional
-              content.
-            </p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <img src="assets/images/kiddance.jpg" class="card-img-top" id="img-fix" alt="KidsDance">
+          <div class="card-body bg-primary text-light">
+            <h5 class="card-title text-center">Dance</h5>
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+    <!-- End of Quick Link Cards -->
 
     <!-- quickLinkScrollableModal -->
     <div class="modal fade" id="quickLinkScrollableModal" tabindex="-1" role="dialog"
@@ -161,6 +146,8 @@
         </div>
       </div>
     </div>
+    <!-- End of Scroll Modal -->
+
     <!--Carousel Section-->
     <div class="container my-5 text-center">
       <div class="row bg-dark my-1 border-0 rounded shadow topEvRow">
@@ -235,9 +222,9 @@
   </div>
 
   <!-- Sticky Footer -->
-  <footer class="footer bg-dark text-center">
+  <footer class="footer bg-primary text-center">
     <div class="container">
-      <span class="text-muted">Little Philly</span>
+      <span class="text-light">Little Philly</span>
     </div>
   </footer>
   <!-- End Sticky Footer -->

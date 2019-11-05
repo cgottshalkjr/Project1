@@ -1,3 +1,48 @@
+.searchbar{
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 60px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 10px;
+    float: right;
+    }
+
+    .search_input{
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color:transparent;
+    line-height: 40px;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_input{
+    padding: 0 10px;
+    width: 450px;
+    caret-color:red;
+    transition: width 0.4s linear;
+    }
+
+    .searchbar:hover > .search_icon{
+    background: white;
+    color: #e74c3c;
+    }
+
+    .search_icon{
+    height: 40px;
+    width: 40px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color:white;
+    }
+
+
 .card {
     cursor: pointer;
 }
@@ -26,6 +71,12 @@
   background-color: rgb(224, 222, 222, 0.5);
 }
 
+#img-fix {
+    width: 100%;
+    height: 8vw;
+    object-fit: cover;
+}
+
 .carousel-caption {
   background-color: rgb(19, 18, 18, 0.6);
   line-height: normal;
@@ -36,7 +87,7 @@
 }
 
 hr {
-  border: 1px dashed black;
+  border: 1px dashed grey;
 }
 
 #searchBtn {
@@ -72,6 +123,7 @@ div.resultsScroll div {
   height: 300px;
   object-fit: cover;
 }
+
 /*  VIDEO PLAYER CONTAINER */
 .vid-container {
   position: relative;
@@ -173,6 +225,29 @@ div.resultsScroll div {
   background: #cc181e;
 }
 
+.card-img-overlay * {
+    text-align: left;
+    white-space: normal;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 70px; /* Margin bottom by footer height */
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #f5f5f5;
+}
+
 @media (max-width: 624px) {
   .vid-list-container {
     padding-bottom: 20px;
@@ -195,25 +270,3 @@ div.resultsScroll div {
   }
 }
 
-  .card-img-overlay * {
-    text-align: left;
-    white-space: normal;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-  }
-
-  body {
-    margin-bottom: 70px; /* Margin bottom by footer height */
-  }
-
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 70px; /* Set the fixed height of the footer here */
-    line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
-  }
