@@ -313,9 +313,9 @@ $.ajax({
     city.addClass("text-center");
     wind = $("#wind").text("Wind Speed: " + response.wind.speed);
     humidity = $("#humidity").text("Humidity: " + response.main.humidity);
-    temp = $("#temp").text("Temperature (F) " + response.main.temp);
-    minTemp = $("#minTemp").text("Min Temperature (F) " + response.main.temp_min);
-    maxTemp = $("#maxTemp").text("Max Temperature (F) " + response.main.temp_max);
+    temp = $("#temp").text(Math.floor(response.main.temp) + "º" + " F");
+    minTemp = $("#minTemp").text("Lowest: " + Math.floor(response.main.temp_min) + "º" + " F");
+    maxTemp = $("#maxTemp").text("Highest: " + Math.floor(response.main.temp_max) + "º" + " F");
     $("#icon").append(iconImg);
 
 
