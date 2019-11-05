@@ -271,3 +271,14 @@ body {
   }
 }
 
+@media (max-width: 992px) {
+    #img-fix {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    #img-fix {
+        height: 300px;
+    }
+}
