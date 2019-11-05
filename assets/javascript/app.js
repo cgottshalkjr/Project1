@@ -217,6 +217,7 @@ function displayVideo() {
     method: "GET"
   }).then(function (ytResponse) {
     console.log(ytResponse);
+    var firstVid;
 
     for (let i = 0; i < ytResponse.items.length; i++) {
 
@@ -227,7 +228,7 @@ function displayVideo() {
         "https://www.youtube.com/embed/" + ytResponse.items[i].id.videoId
       );
       var name = ytResponse.items[i].snippet.title;
-
+        firstVid = "https://www.youtube.com/embed/" + ytResponse.items[0].id.videoId;
       console.log(ytResponse.items[i].id.videoId);
       console.log(url);
       console.log(name);
@@ -246,6 +247,7 @@ function displayVideo() {
 
       $(".vid-list").append(url);
     }
+    $(".vid_frame").attr("src", firstVid);
   });
 }
 displayVideo();
