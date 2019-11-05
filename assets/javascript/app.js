@@ -38,11 +38,11 @@ $(".yelpApiSearch").on("click", function (event) {
       );
       cardImage.addClass("card-img-top card-size");
       var newCard = $("<div class='card border-0 rounded shadow bg-light card-results pt-5'>");
-      var newCardOverlay = $("<div class='card-body text-muted'>");
-      newCard.append(cardImage);
+      var newCardOverlay = $("<div class='card-body text-muted text-left text-wrap px-5'>");
+      newCard.append(cardImage); 
       var isOpen = "Closed";
 
-      var URL = $("<a />").attr("href", business[i].url).text("Go to Website").attr("target", "blank")
+      var URL = $("<a />").attr("href", business[i].url).text("Go to Website").attr("target", "blank").addClass("stretched-link")
 
       console.log(business[i].url)
 

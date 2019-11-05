@@ -74,7 +74,7 @@
       <div class="row">
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="kids+theatre"
@@ -85,14 +85,14 @@
               id="img-fix"
               alt="KidsTheatre"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="theater-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Theater</h5>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="kids+music+classes"
@@ -103,14 +103,14 @@
               id="img-fix"
               alt="KidsMusic"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="music-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Music</h5>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="kids+art+classes"
@@ -121,14 +121,14 @@
               id="img-fix"
               alt="KidsArts"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="arts-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Arts</h5>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="Museums+for+kids"
@@ -139,14 +139,14 @@
               id="img-fix"
               alt="KidsMuseum"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="museums-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Museums</h5>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="kids+athletics"
@@ -157,14 +157,14 @@
               id="img-fix"
               alt="KidsSports"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="sports-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Sports</h5>
             </div>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-sm-12">
           <div
-            class="quick-link-card card"
+            class="quick-link-card card shadow border-0 rounded"
             data-toggle="modal"
             data-target="#quickLinkScrollableModal"
             data-term="dance+classes+for+kids"
@@ -175,7 +175,7 @@
               id="img-fix"
               alt="KidsDance"
             />
-            <div class="card-body bg-primary text-light">
+            <div id="dance-ql" class="card-body text-light border-0 rounded-bottom shadow">
               <h5 class="card-title text-center">Dance</h5>
             </div>
           </div>
@@ -218,20 +218,20 @@
 
       <!--Carousel Section-->
       <div class="container my-5 text-center">
-        <div class="row bg-dark my-1 border-0 rounded shadow topEvRow">
-          <div class="col">
-            <h2 class="text-center text-white display-5">
+        <div class="row my-1 border-0 rounded topEvRow">
+          <div class="col border-0 rounded shadow">
+            <h2 class="text-center text-dark display-5 py-2">
               Top Events This Month
             </h2>
           </div>
         </div>
         <div
-          class="row justify-content-center bg-light border-0 rounded shadow carRow py-3 my-1"
+          class="row justify-content-center carRow py-3 my-1"
         >
           <div class="col-lg-8 col-md-9 col-sm-12">
             <div
               id="eventCarousel"
-              class="carousel slide text-center"
+              class="carousel slide border-0 shadow text-center"
               data-ride="carousel"
             >
               <div class="carousel-inner text-center"></div>
@@ -261,13 +261,55 @@
               </a>
             </div>
           </div>
+          <div class="col-lg-4 col-md-9  col-sm-12">
+            <div class="card weather shadow">
+              <div class="card-header font-weight-bold">
+                <div id="city"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-text text-center font-weight-bold">
+                  <div class="row text-center">
+                    <div class="col-4">
+                      <div id="icon"></div>
+                    </div>
+                    <div class="col-8">
+                      <div id="temp"></div>
+                    </div>
+                  </div>
+                  <div class="row my-3 text-center">
+                      <div class="col-6">
+                          <div id="minTemp"></div>
+                      </div>
+                      <div class="col-6">
+                          <div id="maxTemp"></div>
+                      </div>
+                  </div>
+                  <div id="wind"></div>
+                  <div id="humidity"></div>
+                  <br>
+                  
+                  <a  class="btn btn-lg btn-secondary border-0 shadow" href="https://openweathermap.org/city/phi" target="blank" role="button">Complete forecast</a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
       </div>
       <!--End of Carousel-->
       <!--YouTube section-->
       <!-- YOUTUBE Player-->
+      <div class="row my-1 border-0 rounded topEvRow">
+        <div class="col border-0 rounded shadow">
+          <h2 class="text-center text-dark display-5 py-2">
+            At-Home Activity Inspiration
+          </h2>
+        </div>
+      </div>
       <div class="row carRow justify-content-center py-3 my-5">
-        <div class="col-lg-6 col-md-9  col-sm-12">
+        <div class="col-lg-10 col-md-9  col-sm-12">
           <div class="vid-container">
             <iframe
               id="vid_frame"
@@ -290,47 +332,15 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-12 col-sm-12"></div>
-        <!-- Weather Card -->
-        <div class="col-lg-4 col-md-9  col-sm-12">
-          <div class="card">
-            <div class="card-header">
-              <div id="city"></div>
-            </div>
-            <div class="card-body">
-              <div class="card-text text-center">
-                <div class="row text-center">
-                  <div class="col-4">
-                    <div id="icon"></div>
-                  </div>
-                  <div class="col-8">
-                    <div id="temp"></div>
-                  </div>
-                </div>
-                <div class="row my-3 text-center">
-                    <div class="col-6">
-                        <div id="minTemp"></div>
-                    </div>
-                    <div class="col-6">
-                        <div id="maxTemp"></div>
-                    </div>
-                </div>
-                <div id="wind"></div>
-                <div id="humidity"></div>
-                
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End of Weather Card -->
+        
       </div>
       <!--End of YouTube Section-->
     </div>
 
     <!-- Sticky Footer -->
-    <footer class="footer bg-primary text-center">
+    <footer class="footer text-center">
       <div class="container">
-        <span class="text-light">Little Philly</span>
+        <span class="text-dark">Little Philly</span>
       </div>
     </footer>
     <!-- End Sticky Footer -->
