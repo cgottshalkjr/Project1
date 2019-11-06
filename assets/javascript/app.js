@@ -230,7 +230,7 @@ displayEvent();
 //Player Section
 function displayVideo() {
   var ytURL =
-    "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Kids+DIY&type=video&order=viewCount&maxResults=15&key=AIzaSyBF9BwZdN66yQbMhHnYanjqRPuVrP2AU2Q";
+    "https://www.googleapis.com/youtube/v3/search?part=snippet&q=Kids+DIY&type=video&order=viewCount&maxResults=15&key=AIzaSyDROiEvCRGq0NoDV2vGIPbpPLIUEHlmtMc";
 
   $.ajax({
     url: ytURL,
