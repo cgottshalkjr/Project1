@@ -86,6 +86,10 @@
 
 .jumbotron {
   padding: 2rem 2rem;
+  background-image: url("../images/lp-watercolor-03.png");
+  background-size: 70% 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
 hr {
@@ -114,12 +118,43 @@ div.resultsScroll {
 }
 
 .card-results {
-  width: 375px;
+  width: 275px;
   /* height: 275px; */
 }
+.topEvRow{
+  background-color: #e9ecef;
+}
+.weather{
+  height: 400px;
+}
 
+#theater-ql{
+  background-color: #ba141b;
+  text-shadow: 0px 1px 3px #000000;
+}
+#music-ql{
+  background-color: #f17101;
+  text-shadow: 0px 1px 3px #000000;
+}
+#arts-ql{
+  background-color: #fee937;
+  text-shadow: 0px 1px 3px #000000;
+}
+#museums-ql{
+  background-color: #62bf07;
+  text-shadow: 0px 1px 3px #000000;
+}
+#sports-ql{
+  background-color: #181be4;
+  text-shadow: 0px 1px 3px #000000;
+}
+#dance-ql{
+  background-color: #ee35df;
+  text-shadow: 0px 1px 3px #000000;
+}
 .card-results .card-body {
   display: block;
+  font-size: 65%;
 }
 
 div.resultsScroll div {
@@ -130,8 +165,8 @@ div.resultsScroll div {
 }
 
 .card-size {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 
@@ -264,7 +299,7 @@ body {
     width: 100%;
     height: 70px; /* Set the fixed height of the footer here */
     line-height: 60px; /* Vertically center the text there */
-    background-color: #f5f5f5;
+    background-color: #e9ecef;
 }
 
 @media (max-width: 624px) {
