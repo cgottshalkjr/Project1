@@ -166,7 +166,7 @@ $(".quick-link-card").on("click", function (event) {
 //Carousel
 function displayEvent() {
   var eventfullURL =
-    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=family_fun_kids&location=Philadelphia&date=November&sort_order=popularity";
+    "https://api.eventful.com/json/events/search?app_key=Z6B5HZN5sj28LmLD&category=family_fun_kids&location=Philadelphia&date=thismonth&sort_order=popularity";
   $.ajax({
     url: eventfullURL,
     dataType: "jsonp",
